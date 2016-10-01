@@ -12,5 +12,16 @@ namespace SimpleEmail
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            this.Startup += ((o,r) => {
+                Bootstrapper bootstrapper = new Bootstrapper();
+                bootstrapper.Run();
+            });
+
+            this.LoadCompleted +=((o,r) => {
+                Console.Beep();
+            });
+        }
     }
 }
