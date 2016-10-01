@@ -21,7 +21,7 @@ namespace EmailEntities
 
     public enum EmailFolderChangeType
     {
-        Add,
-        Delete
+        Added,
+        Deleted
     }
 }

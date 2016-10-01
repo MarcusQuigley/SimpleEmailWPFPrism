@@ -11,11 +11,12 @@ namespace EmailEntities
 
         public event EventHandler<EmailFolderChangedEventArgs> EmailChanged;
 
+
         public EmailFolder()
             : this(new List<Email>())
         { }
-
-        public EmailFolder(Email[] emails)
+ 
+        public EmailFolder(params Email[] emails)
             // : this((IEnumerable < Email >) emails)
             : this(emails.ToList<Email>())
         { }
@@ -29,13 +30,29 @@ namespace EmailEntities
             }
         }
 
+        public string Name { get; set; }
+
+
+        public IEnumerable<Email> Emails
+        {
+            get
+            {
+                IEnumerable<Email> copy;
+                lock (emails)
+                {
+                    copy = new List<Email>(emails);
+                }
+                return copy;
+            }
+        }
+
         public void DeleteMail(Email email)
         {
             lock (this.emails)
             {
                 this.emails.Remove(email);
             }
-            OnEmailChanged(EmailFolderChangeType.Delete, email);
+            OnEmailChanged(EmailFolderChangeType.Deleted, email);
 
          }
 
@@ -45,7 +62,7 @@ namespace EmailEntities
             {
                 this.emails.Add(email);
             }
-            OnEmailChanged(EmailFolderChangeType.Add, email);
+            OnEmailChanged(EmailFolderChangeType.Added, email);
         }
 
         protected void OnEmailChanged(EmailFolderChangeType changeType, Email email)
