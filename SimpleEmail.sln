@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailInterfaces", "EmailInt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService", "EmailService\EmailService.csproj", "{0A334145-FCA2-4D7D-A8F1-17253EE09D5E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{F515C465-7473-43C4-996C-D4B3F978A7C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.MailSelection", "Modules.MailSelection\Modules.MailSelection.csproj", "{DFB46DFA-81D0-4403-BDAC-F89247EB4C41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +37,15 @@ Global
 		{0A334145-FCA2-4D7D-A8F1-17253EE09D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A334145-FCA2-4D7D-A8F1-17253EE09D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A334145-FCA2-4D7D-A8F1-17253EE09D5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFB46DFA-81D0-4403-BDAC-F89247EB4C41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB46DFA-81D0-4403-BDAC-F89247EB4C41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB46DFA-81D0-4403-BDAC-F89247EB4C41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB46DFA-81D0-4403-BDAC-F89247EB4C41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DFB46DFA-81D0-4403-BDAC-F89247EB4C41} = {F515C465-7473-43C4-996C-D4B3F978A7C4}
 	EndGlobalSection
 EndGlobal

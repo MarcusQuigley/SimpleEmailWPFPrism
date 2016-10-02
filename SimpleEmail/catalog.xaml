@@ -13,6 +13,14 @@
             ModuleName="EmailModule"
             ModuleType="EmailService.ModuleDefinitions.Module, EmailService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
         </Modularity:ModuleInfo>
+    <Modularity:ModuleInfo
+        Ref="file:///MailSelection.dll"
+            ModuleName="MailSelectionModule"
+            ModuleType="MailSelection.ModuleDefinitions.Module, MailSelection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Modularity:ModuleInfo.DependsOn>
+            <sys:String>EmailModule</sys:String>
+        </Modularity:ModuleInfo.DependsOn>
+    </Modularity:ModuleInfo>
 </Modularity:ModuleCatalog>
 
 

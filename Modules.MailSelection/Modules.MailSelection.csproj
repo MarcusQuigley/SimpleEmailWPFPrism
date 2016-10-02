@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{15E577F4-0980-477A-9F01-41B483197EDA}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{DFB46DFA-81D0-4403-BDAC-F89247EB4C41}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimpleEmail</RootNamespace>
-    <AssemblyName>SimpleEmail</AssemblyName>
+    <RootNamespace>MailSelection</RootNamespace>
+    <AssemblyName>MailSelection</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\lib\Microsoft.Practices.Prism.dll</HintPath>
@@ -40,8 +43,15 @@
     <Reference Include="Microsoft.Practices.Prism.UnityExtensions">
       <HintPath>..\lib\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Unity">
       <HintPath>..\lib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\lib\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -58,20 +68,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Shell.xaml.cs">
-      <DependentUpon>Shell.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="ModuleDefinitions\Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -85,6 +82,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewModels\MailSelectionViewModel.cs" />
+    <Compile Include="Views\MailSelectionView.xaml.cs">
+      <DependentUpon>MailSelectionView.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -96,23 +97,19 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="catalog.xaml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Page Include="Shell.xaml">
+    <Page Include="Views\MailSelectionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EmailService\EmailService.csproj">
-      <Project>{0a334145-fca2-4d7d-a8f1-17253ee09d5e}</Project>
-      <Name>EmailService</Name>
+    <ProjectReference Include="..\EmailEntities\EmailEntities.csproj">
+      <Project>{e374c09c-c04a-4416-a080-607b09e8fe97}</Project>
+      <Name>EmailEntities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Modules.MailSelection\Modules.MailSelection.csproj">
-      <Project>{dfb46dfa-81d0-4403-bdac-f89247eb4c41}</Project>
-      <Name>Modules.MailSelection</Name>
+    <ProjectReference Include="..\EmailInterfaces\EmailInterfaces.csproj">
+      <Project>{cd04eb40-a78d-405f-b6a7-9358585f9a07}</Project>
+      <Name>EmailInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
