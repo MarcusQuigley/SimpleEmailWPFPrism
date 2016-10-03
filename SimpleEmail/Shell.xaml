@@ -25,7 +25,7 @@
                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </Border>
         
-        <Border CornerRadius="3" Background="OliveDrab" Margin="2"
+        <Border CornerRadius="3" Margin="2"
                 Grid.Column="1" Grid.Row="0">
             <ContentControl rgn:RegionManager.RegionName="EmailSelectionRegion"/>
         </Border>

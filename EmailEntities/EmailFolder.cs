@@ -31,8 +31,7 @@ namespace EmailEntities
         }
 
         public string Name { get; set; }
-
-
+ 
         public IEnumerable<Email> Emails
         {
             get
